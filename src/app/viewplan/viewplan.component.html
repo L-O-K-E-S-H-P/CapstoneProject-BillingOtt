@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4" *ngFor="let ottplan of getOTTPlan">
+            <div class="card"  style="background-color: cornsilk;">
+                <div class="card-body">
+                    <h6 class="card-title text-center">{{ottplan.planDuration}} plan </h6>
+                    <h1 style="text-align: center; color: Red;"><b>{{ottplan.price}}</b></h1>
+                    <h3 style="color: red; text-align: center;">{{ottplan.planDesc}}</h3>
+                    <img src="{{ottplan.image}}" class="card-img-top" alt="Plan Image" style="height: 215px;"> <!-- Add your image here -->
+                    <div>
+                       <h5 class="card-subtitle mb-2 text-muted">VALIDITY</h5>
+                        <h3>Bill Cycle</h3>
+                    </div>
+                    <h6 class="card-subtitle mb-2 text-muted">BENEFITS</h6>
+                    <b>{{ottplan.dataLimit}}</b>
+        
+                    <h6 class="card-subtitle mb-2 text-muted">SUBSCRIPTIONS</h6>
+                    <div class="row">
+                        <div class="col">
+                            <div class="subscription-item">
+                                <img src="{{ottplan.ott1}}" class="subscription-icon" alt="Subscription Icon">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="subscription-item">
+                                <img src="{{ottplan.ott2}}" class="subscription-icon" alt="Subscription Icon">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="subscription-item">
+                                <img src="{{ottplan.ott3}}" class="subscription-icon" alt="Subscription Icon"> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <a routerLink="/paybill" class="btn btn-primary">BUY</a> 
+                </div>
+</div>

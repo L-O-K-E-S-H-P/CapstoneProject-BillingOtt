@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="mobile-services">
+    <h2>Mobile Services</h2>
+    <div>
+      <input type="tel" [(ngModel)]="newMobileNumbers" >
+      <button (click)="addMultipleMobileNumbers()">Add</button>
+    </div>
+    <ul>
+      <li *ngFor="let mobileNumber of mobileNumbers; let i = index">
+        <input
+          type="text"
+          [(ngModel)]="mobileNumbers[i]"
+          [disabled]="i === 0"
+        />
+        <button *ngIf="i > 0" (click)="removeMobileNumber(i)">Remove</button>
+      </li>
+    </ul>
+  </div>
+  

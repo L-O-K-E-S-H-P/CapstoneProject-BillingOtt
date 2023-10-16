@@ -1,0 +1,27 @@
+/* Custom CSS for the black-bordered grid */
+.table-bordered {
+    border-color: #000; /* Black border color */
+}
+
+/* Custom styles for the table header */
+th {
+    background-color: #007BFF; /* Header background color */
+    color: #fff; /* Header text color */
+}
+
+/* Custom styles for the "Delete" buttons */
+.btn-delete {
+    background-color: #DC3545; /* Delete button background color */
+    color: #fff; /* Delete button text color */
+    border: none;
+}
+
+/* Hover effect on "Delete" buttons */
+.btn-delete:hover {
+    background-color: #C82333;
+}
+
+/* Add some spacing between the table and other content */
+.container {
+    margin-top: 20px;
+}

@@ -1,0 +1,151 @@
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+body {
+  padding-top: 56px;
+}
+.user{
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+}
+.custom-navbar {
+  font-size: 18px;
+  font-weight: bold;;
+    color: #fff;
+    background-color:rgb(13,110,253);
+    padding: 15px; /* Increase the navbar height */
+}
+.dropdown-menu
+{
+  font-size: 18px;
+  font-weight: bold;
+}
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+  }
+  .offcanvas-collapse.open {
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+}
+
+.nav-scroller .nav {
+  color: rgba(255, 255, 255, .75);
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+  color: #6c757d;
+}
+
+.nav-scroller .nav-link:hover {
+  color: #007bff;
+}
+
+.nav-scroller .active {
+  font-weight: 500;
+  color: #343a40;
+}
+
+.bg-purple {
+  background-color: #6f42c1;
+}
+
+/* Style the user profile container */
+.user-profile {
+    margin-right: 10px; /* Add margin for spacing */
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style the circular profile picture */
+  .profile-pic {
+    width: 40px; /* Adjust the size as needed */
+    height: 40px; /* Make sure it's a square shape */
+    border-radius: 50%; /* Create a circular shape */
+    object-fit: cover; /* Maintain the aspect ratio of the image */
+    cursor: pointer;
+  }
+  
+  /* Style the profile buttons container (initially hidden) */
+  .profile-pic-container {
+    position: relative;
+  }
+  
+  /* Style the "Edit Profile" and "Logout" buttons (initially hidden) */
+  .profile-buttons {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color:powderblue; /* Set your desired background color */
+    border: 1px solid whitesmoke; /* Add a border for separation */
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for dropdown */
+  }
+  
+  .edit-profile-btn,
+  .logout-btn {
+    display: block;
+    padding: 8px 12px;
+    text-align: right;
+    text-decoration: none;
+    color: #333; /* Set your desired text color */
+  }
+  
+  /* Show the profile buttons when hovering over the profile picture container */
+  .user-profile {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .profile-pic {
+    max-width: 140px;
+    border-radius: 50%;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    top: 100%; /* Place it just below the profile picture */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Adjust the width of the card as needed */
+    display: none;
+    z-index: 1; /* Ensure the card is on top of other content */
+  }
+  
+  .user-profile:hover .card-overlay {
+    display: block;
+  }
+  
+  .card {
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-body button {
+    margin-right: 20px;
+  }
+  

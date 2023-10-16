@@ -1,0 +1,28 @@
+<div><app-header></app-header></div>
+<div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <div *ngFor="let faqItem of faqs" class="faq-item">
+      <h3 (click)="toggleFaq(faqItem)">{{ faqItem.question }}</h3>
+      <p *ngIf="faqItem.expanded">{{ faqItem.answer }}</p>
+      <div class="like-dislike">
+        <button (click)="likeFaq(faqItem)" class="btn btn-primary">
+          <!-- Like icon -->
+          <i class="fas fa-thumbs-up"></i> Like
+        </button>
+      </div>
+    
+      <!-- Display the like count with a like icon -->
+      <div class="like-count">
+        <span>
+          <i class="fas fa-heart" style="color: red;"></i> {{ faqItem.likes }} people liked this
+        </span>
+      </div>
+    </div>
+  </div>
+  
+
+   
+
+
+
+

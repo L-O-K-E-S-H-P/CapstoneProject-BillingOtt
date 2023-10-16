@@ -1,0 +1,168 @@
+<html><head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<app-user></app-user>
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{viewData.username}}</h5>
+              <p class="text-muted mb-1">{{viewData.phone}}</p>
+              <p class="text-muted mb-4">Primary Account</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+                <button type="button" class="btn btn-outline-primary ms-1">My Plans</button>
+              </div>
+            </div>
+          </div>
+         </div>
+         <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  </div>
+                  <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{viewData.username}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{viewData.email}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{viewData.phone}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{viewData.address}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+            <div class="col-md-12">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                    <div class="container">
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Invoice Number</th>
+                              <th>Client Name</th>
+                              <th>Invoice Date</th>
+                              <th>Due Date</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>INV-001</td>
+                              <td>John Doe</td>
+                              <td>2023-01-15</td>
+                              <td>2023-02-15</td>
+                              <td>$500</td>
+                              <td><span class="badge bg-success">Paid</span></td>
+                              <td>
+                                <a href="#" class="btn btn-primary btn-sm">View</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>INV-002</td>
+                              <td>Jane Smith</td>
+                              <td>2023-02-01</td>
+                              <td>2023-03-01</td>
+                              <td>$750</td>
+                              <td><span class="badge bg-warning">Pending</span></td>
+                              <td>
+                                <a href="#" class="btn btn-primary btn-sm">View</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                            <!-- Add more rows for additional invoices -->
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+            </div>    
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</body></html>

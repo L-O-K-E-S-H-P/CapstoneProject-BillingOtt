@@ -1,0 +1,33 @@
+<app-user></app-user>
+
+<div class="container mt-4">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>UserPlanID</th>
+        <th>UserID</th>
+        <th>planId</th>
+        <th>planName</th>
+        <th>Activation Date</th>
+        <th>Due Date</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plan of selectedPlans">
+        <td>{{plan.userPlanId}}</td>
+        <td>{{ plan.userId }}</td>
+        <td>{{ plan.planId }}</td>
+        <td>{{ plan.planName }}</td>
+        <td>{{ plan.activationDate | date:'longDate' }}</td>
+        <td>{{ plan.expiryDate | date:'longDate' }}</td>
+        <td>{{ plan.price }}</td>
+        <td>
+          
+          <button type="submit" class="btn btn-success click-button m-1" routerLink="/userpay">PAY NOW</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

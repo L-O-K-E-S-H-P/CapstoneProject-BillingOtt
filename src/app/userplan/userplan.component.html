@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        /* Add custom CSS for hover effect */
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+    <title>Airtel Postpaid Plans</title>
+</head>
+<body>
+    <div><app-user></app-user></div>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4" *ngFor="let ottplan of getOTTPlan">
+                <div class="card"  style="background-color: cornsilk;">
+                    <div class="card-body">
+                        <h6 class="card-title text-center">{{ottplan.planDuration}} plan </h6>
+                        <h1 style="text-align: center; color: Red;"><b>{{ottplan.price}}</b></h1>
+                        <h3 style="color: red; text-align: center;">{{ottplan.planDesc}}</h3>
+                        <img src="{{ottplan.image}}" class="card-img-top" alt="Plan Image" style="height: 215px;"> <!-- Add your image here -->
+                        <div>
+                           <h5 class="card-subtitle mb-2 text-muted">VALIDITY</h5>
+                            <h3>Bill Cycle</h3>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">BENEFITS</h6>
+                        <b>{{ottplan.dataLimit}}</b>
+            
+                        <h6 class="card-subtitle mb-2 text-muted">SUBSCRIPTIONS</h6>
+                        <div class="row">
+                            <div class="col">
+                                <div class="subscription-item">
+                                    <img src="{{ottplan.ott1}}" class="subscription-icon" alt="Subscription Icon">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="subscription-item">
+                                    <img src="{{ottplan.ott2}}" class="subscription-icon" alt="Subscription Icon">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="subscription-item">
+                                    <img src="{{ottplan.ott3}}" class="subscription-icon" alt="Subscription Icon"> 
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <a (click)="selectPlan(ottplan)" routerLink="/myplan" class="btn btn-primary">BUY</a> 
+                    </div>
+    </div>
+            
+
+            <!-- Add more cards here -->
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+

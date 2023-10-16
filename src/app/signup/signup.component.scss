@@ -1,0 +1,117 @@
+
+img {
+    width: 100%;
+
+  }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  
+.signup-box {
+    color: black;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+/* Add animation keyframes for fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.input-wrap {
+    margin-bottom: 15px;
+    animation: slideInLeft 1s ease; /* Slide-in animation for input fields */
+}
+
+/* Add animation keyframes for slideInLeft */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+.person {
+    max-width: 100%; /* Ensure the image doesn't overflow its container */
+  }
+  
+.left 
+{
+    flex: 1; /* Occupy available space on the left */
+    text-align: left;
+    padding: 20px;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  
+.right {
+    flex: 1; /* Occupy available space on the right */
+    text-align: right;
+  }
+input[type="tel"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    animation: fadeIn 1s ease; /* Fade-in animation for input fields */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: slideInUp 1s ease; /* Slide-in animation for the submit button */
+}
+
+/* Add animation keyframes for slideInUp */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    animation: fadeIn 1s ease; /* Fade-in animation for error messages */
+}

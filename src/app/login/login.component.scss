@@ -1,0 +1,143 @@
+.welcome-text {
+
+    font-weight: bold;
+
+    font-size: 25px;
+
+}
+
+.infographic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+
+
+  .gradient-button {
+    background:rgb(13,110,253); /* Define your gradient colors here */
+    background-size: 200% 100%; /* Set the initial background size */
+  
+    transition: background-position 0.5s ease; /* Add a smooth transition effect */
+  }
+  
+  .gradient-button:hover {
+    background-position: -100% 0; /* Move the background position to the left on hover */
+    cursor: pointer; /* Change cursor to a pointer on hover */
+    color: #fff; /* Change text color on hover if needed */
+  }
+ 
+.login-card {
+
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.24);
+
+    border-radius: 25px;
+    
+
+}
+
+
+ 
+.check-circle-icon {
+
+    color: #1eccb0;
+
+    margin-right: 10px;
+
+}
+
+ 
+
+.features-text {
+
+    font-size: 20px;
+
+    margin-left: 60px;
+
+    line-height: 30px;
+
+    margin-top: 40px;
+
+}
+
+ 
+
+.features-text-head {
+
+    font-size: 40px;
+
+    margin-left: 60px;
+
+    line-height: 50px;
+
+}
+
+ 
+
+.getOTP-btn {
+
+    border-radius: 30px;
+
+}
+
+ 
+
+.scroll-text {
+
+    font-size: 15px;
+
+    color: brown;
+
+    animation: animate 1.5s linear infinite;
+
+}
+
+ 
+
+@keyframes animate {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+ 
+
+    33.4% {
+
+        opacity: 1;
+
+    }
+
+ 
+
+    66.7% {
+
+        opacity: 0;
+
+    }
+
+ 
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+ 
+
+ 
+
+    /* 100% {
+
+        opacity: 1;
+
+    } */
+
+}
+
+ 

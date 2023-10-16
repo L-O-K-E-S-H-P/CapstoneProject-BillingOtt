@@ -1,0 +1,17 @@
+<div class="container-fluid g-0">
+    <div class="header">
+      <!-- <app-header (sideNavToggled)="sideNavStatus=$event;"></app-header> -->
+      <!-- <app-header (sideNavToggled)="sideNavStatus=$event;"  (goto)="onReceive($event)" *ngIf="directTo == 'home' "></app-header>
+      
+      <app-user *ngIf="directTo == 'user'"></app-user> -->
+      <app-header></app-header>
+    </div>
+    <div class="main-container">
+        <!-- <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}">
+        </app-side-nav> -->
+        
+      <div class="display-area p-3" [ngClass]="{'display-area-shrink':sideNavStatus}">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

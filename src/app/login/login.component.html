@@ -1,0 +1,66 @@
+<div class="full-page-div">
+  <div><app-header></app-header></div>
+    <div class="row" style="background-color:lavenderblush">
+      <div class="col-7 p-5">
+        <p class="features-text-head">Empower Your Digital Life with MGR Services</p>
+        <p class="features-text"><i class="fas fa-check-circle check-circle-icon"></i>Recharge, pay bills, and check
+            balance</p>
+
+        <p class="features-text"><i class="fas fa-check-circle check-circle-icon"></i>Shop, UPI, and health</p>
+
+        <p class="features-text"><i class="fas fa-check-circle check-circle-icon"></i>Movies, music, and games</p>
+
+        <p class="features-text"><i class="fas fa-check-circle check-circle-icon"></i>Instant help with MGR Care</p>
+      </div>
+      <div class="col-4 p-3">
+        <div class="mb-2">
+          <marquee behavior="scroll" direction="left" class="scroll-text">
+            Your data on MGR Services is encrypted and secure, accessible only by authorized services, and transmitted through a monitored, secure channel.
+          </marquee>
+        </div>
+        <div class="login-card-container">
+          <div class="card" style="border: 0; width: 450px;">
+            <div class="card-body text-center p-5 login-card">
+              <p class="welcome-text">Welcome to MGR Services</p>
+              <p>Log in to unlock a world of digital experiences.</p>
+              <ng-container *ngIf="(asyncTabs | async) === null">
+                Loading tabs...
+              </ng-container>
+              <mat-tab-group class="mt-2">
+                <mat-tab>
+                  <ng-template mat-tab-label>Phone</ng-template>
+                  <form class="example-form pt-3" (ngSubmit)="onSubmit()">
+                    <mat-form-field class="example-full-width mt-2" appearance="fill">
+                      <mat-label>Phone Number</mat-label>
+                      <input type="tel" id="phone" name="phone" maxlength="10" matInput [formControl]="phoneNumberFormControl" [(ngModel)]="inputText" (ngModelChange)="logInputText()" (input)="checkPhoneNumberInDatabase()" [errorStateMatcher]="matcher" placeholder="Ex. 8849441636" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="phoneNumberErrorExists()" style="font-size: 15px; padding: 0 16px;">
+                      {{ errorText }}
+                    </mat-error>
+                    <!-- <button type="button" class="btn btn-primary btn-lg w-100 mt-5 getOTP-btn" (click)="submit()" [disabled]="phoneNumberErrorExists()">Get OTP</button> -->
+                    <input type="submit" value="SEND OTP" class="btn solid" [disabled]="phoneNumberErrorExists()" (click)="optPage()"/>
+                    <div class="otp" *ngIf="Otp">
+                    <div class="my-4">
+
+                      <ng-otp-input   (onInputChange)="onOtpChange($event)"  [config]="configOptions"></ng-otp-input>
+                  </div>
+                <div>
+                  <!-- <button routerLink = "/user" class="btn btn-lg w-100 mt-3 mb-4 py-3 gradient-button"  [ngClass]="btnStatus">{{ this.inputDigitLeft }}</button>            -->
+                  <button (click)="checkPhoneNumber()" class="btn btn-lg w-100 mt-3 mb-4 py-3 gradient-button" [ngClass]="btnStatus">{{ this.inputDigitLeft }}</button>
+ 
+
+                </div>
+                </div>
+                  </form>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+ 
+
+  

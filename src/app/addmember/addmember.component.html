@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* CSS for the left and right columns */
+  .left-column {
+    float: left;
+    width: 30%;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .right-column {
+    float: left;
+    width: 70%;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+    <app-user></app-user>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Content for the left side (width of 4 columns) -->
+        <div class="card border-dark" style="background-color:aliceblue;">
+          <div class="row no-gutters">
+            <h2 style="text-align: center;">Switch Account</h2>
+            <div class="col-md-4">
+              <img src="assets/images/sim.png" class="card-img-left img-fluid" alt="User Image">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <div class="accounts">
+                    <!-- Primary Account -->
+                    <div class="account primary">
+                      <h2>Primary Account</h2>
+                      <p>Primary Id:{{primaryAccount.id}}</p>
+                      <p>Account Name: {{primaryAccount.username}}</p>
+                      <p>Account Number: {{primaryAccount.phone}}</p>
+                      <button (click)="togglePrimary()">Make Secondary</button>
+                    </div>
+                  
+                    <!-- Add Secondary Account Button -->
+                    <button *ngIf="secondaryAccounts.length < 4" (click)="addSecondaryForm()">Add Secondary Account</button>
+                  
+                    <!-- Secondary Accounts -->
+                    <div *ngFor="let account of secondaryAccounts; let i = index" class="account">
+                      <h2>Secondary Account {{ i + 1 }}</h2>
+                      <p>Name: {{ account.name }}</p>
+                      <p>Email: {{ account.email }}</p>
+                      <p>Phone: {{ account.phone }}</p>
+                      <button (click)="makePrimary(i)">Make Primary</button>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <img src="assets/images/add.png" alt="add member" style="max-width: 80px;margin-left: 130px;">
+        <h2 style="text-align: center;">Add Friends & Family:</h2>
+        <h4 style="text-align: justify;">Link the phone numbers of your loved ones for easy access to features such as recharging, bill payments, checking available data balance, and more.</h4>
+        <button type="button" (click)="toggleContent()" class="btn btn-outline-dark" style="margin-left: 80px;" *ngIf="secondaryAccounts.length < 4" (click)="addSecondaryForm()">Link New Account</button>
+      </div>
+      <div class="col-md-8">
+          <!-- Secondary Account Form -->
+          <div class="secondary-account-form" *ngIf="showSecondaryAccountForm">
+            <h2>Add Secondary Account</h2>
+            <form (submit)="addAccount()">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="memberdata.name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="memberdata.mail" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="memberdata.phone" required>
+              </div>
+          
+              <button type="submit" class="btn btn-primary" (click)="showSweetAlert()">Add Account</button>
+            </form>
+          </div>
+          
+          <div class="p-3" *ngIf="isContentVisible">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>Account Details</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                Enter the number and verify OTP to link a new account.
+              </mat-card-content>
+              <mat-card-content>
+                <mat-tab-group>
+                  <mat-tab label="Mobile">
+                    <form #mobileForm="ngForm">
+                      <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          #nameInput="ngModel"
+                          [(ngModel)]="name"
+                          required
+                        />
+                        <div *ngIf="nameInput.invalid && nameInput.touched" class="text-danger">
+                          Name is required.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          #emailInput="ngModel"
+                          name="email"
+                          [(ngModel)]="email"
+                          required
+                          pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$"
+                        />
+                        <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                          Enter a valid email address.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="mobile">Mobile Number:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="mobile"
+                          name="mobile"
+                          #mobileInput="ngModel"
+                          [(ngModel)]="mobile"
+                          required
+                          pattern="^[0-9]{10}$"
+                        />
+                        <div *ngIf="mobileInput.invalid && mobileInput.touched" class="text-danger">
+                          Enter a valid 10-digit mobile number.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <button
+                          mat-raised-button
+                          color="primary"
+                          [disabled]="mobileForm.invalid"
+                          (click)="optPage()"
+                        >
+                          Generate OTP
+                        </button>
+                      </div>
+                      <div class="otp" *ngIf="Otp">
+                        <div class="my-4">
+                          <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="configOptions"></ng-otp-input>
+                        </div>
+                        <div>
+                          <button
+                            class="btn btn-lg w-100 mt-3 mb-4 py-3 gradient-button"
+                            (click)="showSweetAlert()"
+                            [ngClass]="btnStatus"
+                          >
+                            {{ inputDigitLeft }}
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </mat-tab>
+                  <mat-tab label="Email">
+                    <form #emailForm="ngForm">
+                      <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          [(ngModel)]="name"
+                          required
+                        />
+                        <div *ngIf="nameInput.invalid && nameInput.touched" class="text-danger">
+                          Name is required.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="mobile">Mobile Number:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="mobile"
+                          name="mobile"
+                          [(ngModel)]="mobile"
+                          required
+                          pattern="^[0-9]{10}$"
+                        />
+                        <div *ngIf="mobileInput.invalid && mobileInput.touched" class="text-danger">
+                          Enter a valid 10-digit mobile number.
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          [(ngModel)]="email"
+                          required
+                          pattern="^([a-zA-Z0-9._%-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,})$"
+                        />
+                        <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                          Enter a valid email address.
+                        </div>
+                      </div>
+                      <button
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="emailForm.invalid"
+                        (click)="optPage()"
+                      >
+                        Generate OTP
+                      </button>
+                      <div class="otp" *ngIf="Otp">
+                        <div class="my-4">
+                          <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="configOptions"></ng-otp-input>
+                        </div>
+                        <div>
+                          <button
+                            class="btn btn-lg w-100 mt-3 mb-4 py-3 gradient-button"
+                            (click)="showSweetAlert()"
+                            [ngClass]="btnStatus"
+                          >
+                            {{ inputDigitLeft }}
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </mat-tab>
+                </mat-tab-group>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+</body>
+</html>

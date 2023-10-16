@@ -1,0 +1,44 @@
+<html><head></head>
+<body>
+<div><app-header></app-header></div>
+<div class="container">
+  <div class="signup-box">
+    <div class="left">
+      <h1>Sign Up</h1>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="success" class="alert alert-success">Successfully Registered</div>
+        <div class="input-wrap">
+          <label for="profileImage">Profile Image</label>
+          <input type="file" id="profileImage" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+        <div class="input-wrap">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" formControlName="username" required>
+          <div *ngIf="usernameInvalid" class="error">Username is required.</div>
+        </div>
+        <div class="input-wrap">
+          <label for="phone">Mobile No</label>
+          <input type="tel" id="phone" name="phone" formControlName="phone" required>
+          <div *ngIf="phoneInvalid" class="error">Invalid phone format.</div>
+        </div>
+        <div class="input-wrap">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" formControlName="email" required>
+          <div *ngIf="emailInvalid" class="error">Invalid email format.</div>
+        </div>
+        <div class="input-wrap">
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" formControlName="address" rows="4" cols="50" placeholder="123 Main St
+          City, State Zip Code"></textarea>
+        </div>      
+        <h4>Already had account?<a href="/login">Signin</a></h4>
+        <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+        
+      </form>
+    </div>
+    <div class="right">
+      <img src="assets/images/person.png" alt="Person Image" class="person" />
+    </div>
+  </div>
+</div>
+</body></html>

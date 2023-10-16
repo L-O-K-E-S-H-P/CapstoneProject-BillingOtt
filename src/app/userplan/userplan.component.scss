@@ -1,0 +1,52 @@
+/* Custom CSS for Bootstrap cards */
+
+/* Add hover effect to cards */
+body{
+    padding: 20px;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style the card title */
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Change the text color */
+}
+
+/* Style the card text */
+.card-text {
+    font-size: 18px;
+}
+
+/* Style the card subtitle */
+.card-subtitle {
+    font-size: 16px;
+    color: #666; /* Change the subtitle color */
+}
+
+/* Style the list items within the card */
+.list-group-item {
+    font-size: 16px;
+    border: none;
+}
+
+/* Style the "BUY" button */
+.btn-primary {
+    background-color: #ff6f61; /* A custom button color */
+    border-color: #ff6f61; /* Match the background color */
+}
+
+.btn-primary:hover {
+    background-color: #ff4d40; /* Darker color on hover */
+    border-color: #ff4d40; /* Match the background color on hover */
+    color: #fff; /* Change text color on hover */
+}
+.subscription-icon {
+    width: 24px; /* Adjust the width as needed */
+    height: 24px; /* Adjust the height as needed */
+    margin-right: 8px; /* Add spacing between the icon and text */
+    vertical-align: middle; /* Align the icon vertically with text */
+}

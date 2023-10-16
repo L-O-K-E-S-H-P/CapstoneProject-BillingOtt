@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.115.4">
+    <title>Carousel Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+ </head>
+ <body>   
+<main>
+  <div><app-header></app-header></div>
+  <div id="myCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/images/family.png" class="d-block w-100 img-fluid" alt="Seamless Family Mobile Management">
+        <div class="carousel-caption text-start">
+          <h1 style="color: red; text-align: center;">Seamless Family Mobile Management</h1>
+          <p>Simplify your life with our B2C Family Account feature! Enjoy the convenience of managing 4 to 5 mobile services under one billing account.</p>
+          <a class="btn btn-lg btn-primary" href="#">Sign up today</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/shape.jpg" class="d-block w-100 img-fluid" alt="Entertainment at Your Fingertips">
+        <div class="carousel-caption">
+          <h1 style="color: rgb(203, 66, 16);">Entertainment at Your Fingertips</h1>
+          <p>Introducing 3rd-party services for Disney Hotstar and Netflix! Elevate your entertainment experience with ease, all within your billing account.</p>
+          <a class="btn btn-lg btn-primary" href="#">Learn more</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/start.jpeg" class="d-block w-100 img-fluid" alt="Effortless Billing and Service Control">
+        <div class="carousel-caption text-end">
+          <h1 style="color:red; text-align: center;">Effortless Billing and Service Control</h1>
+          <p>Experience hassle-free billing with automated invoices. Pay on time for uninterrupted services or regain access with a simple payment. Your convenience, our priority!</p>
+          <a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+  
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+    <!-- START THE FEATURETTES -->
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-5">
+        <h2 class="featurette-heading fw-normal lh-1 text-color-change color-transition">Enjoy more free packs <span class="text-body-secondary"><br>with uninterrupted service.</span></h2>
+        <a href="#" class="lead arrow-link">
+          Choose Existing Plan
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="col-md-7 d-flex align-items-center ml-auto">
+        <video controls width="680" autoplay>
+          <source src="assets/images/platform.mp4" type="video/mp4">
+          <source src="example.webm" type="video/webm">
+          Your browser does not support the video tag.
+      </video>
+      </div>
+    </div>
+    
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1 text-color-change color-transition">Share data with family <span class="text-body-secondary"><br>The joy multiplies when shared.</span></h2>
+        <p class="lead">
+          Enjoy uninterrupted digital experiences with your loved ones, as there's no daily data limit on your JioPlus connection.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="assets/images/shareData.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="Share data with family">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1 text-color-change color-transition">Non-stop entertainment<br>
+          <span class="text-body-secondary">Unlock a world of endless amusement</span></h2>
+        <p class="lead">Get free subscriptions to Netflix and Amazon Prime with select postpaid plans.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="assets/images/trial.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="Non-stop entertainment">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Include Bootstrap JS and FontAwesome JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  <!-- /.container -->
+  
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <button id="scrollToTopButton" class="btn btn-primary" (click)="scrollToTop()">Scroll to Top</button>
+  </footer>
+</main>
+
+
+    </body>
+</html>
