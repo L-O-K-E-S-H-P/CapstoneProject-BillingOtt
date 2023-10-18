@@ -14,12 +14,12 @@ export class UserServiceService {
   generateOtp(phoneNumber:string)
   {
     const body={phoneNumber}
-    return this.http.post('http://localhost:8200/requestotp',body)    
+    return this.http.post('http://localhost:8200/otp/requestotp',body)    
   }
   validateOtp(otp:string)
   {
     console.log("validate otp");
-    return this.http.post<Status>('http://localhost:8200/validateotp',otp);
+    return this.http.post<Status>('http://localhost:8200/otp/validateotp',otp);
   }
 
   addAccount(accountData:any)

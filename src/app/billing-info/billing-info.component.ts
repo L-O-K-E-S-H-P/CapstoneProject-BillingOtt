@@ -36,7 +36,7 @@ export class BillingInfoComponent implements OnInit {
     
   
     // Make an HTTP POST request to send the data to the backend
-    this.http.post('http://localhost:8200/admin', emailData).subscribe(
+    this.http.post('http://localhost:8201/admin', emailData).subscribe(
       (response) => {
         console.log('Email sent successfully:', response);
         // Handle any success logic here
