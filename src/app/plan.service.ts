@@ -26,6 +26,14 @@ export class PlanService {
     return this.http.get<Plan[]>(`http://localhost:8200/userplans/by-user/${userId}`)
   }
 
+  payInvoice(userPlanId:number)
+  {
+    return this.http.post(`http://localhost:8200/userplans/pay-invoice/${userPlanId}`,null);
+  }
+
+
+
+
 
 }
 

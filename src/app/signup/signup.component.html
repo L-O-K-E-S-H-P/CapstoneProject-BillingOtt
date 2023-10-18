@@ -18,8 +18,9 @@
         </div>
         <div class="input-wrap">
           <label for="phone">Mobile No</label>
-          <input type="tel" id="phone" name="phone" formControlName="phone" required>
+          <input type="tel" id="phone" name="phone" maxlength="10"  formControlName="phone" [(ngModel)]="inputText" (input)="checkPhonenumberInDB()"   required>
           <div *ngIf="phoneInvalid" class="error">Invalid phone format.</div>
+          <div *ngIf="check" class="error">User Already Registered</div>
         </div>
         <div class="input-wrap">
           <label for="email">Email</label>

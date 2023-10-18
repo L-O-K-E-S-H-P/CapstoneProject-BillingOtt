@@ -39,6 +39,8 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
 import { BillingInfoComponent } from './billing-info/billing-info.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -71,7 +73,7 @@ import { InvoicesComponent } from './invoices/invoices.component';
     InvoicesComponent,
   ],
   imports: [
-    BrowserModule,ReactiveFormsModule,MatButtonModule,
+    BrowserModule,ReactiveFormsModule,MatButtonModule,MatPaginatorModule,MatTabsModule,
     AppRoutingModule, MatFormFieldModule,MatInputModule,MatCardModule,
     FontAwesomeModule,FormsModule,NgOtpInputModule,NgbCarouselModule,
     BrowserAnimationsModule,MatTabsModule,HttpClientModule

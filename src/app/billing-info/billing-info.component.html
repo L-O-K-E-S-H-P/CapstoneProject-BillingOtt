@@ -1,129 +1,42 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Table</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<app-adminpage></app-adminpage>
-<div class="container">
-    <h2>Member List</h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Invoice No.</th>
-                <th>Client Name</th>
-                <th>Invoice Date</th>
-                <th>Due Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Service control</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Lokesh</td>
-                <td>15-01-2023</td>
-                <td>15-02-2023</td>
-                <td>₹699</td>
-                <td><span class="badge bg-success">Paid</span></td>
-                <td><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jeeva</td>
-                <td>24-02-2023</td>
-                <td>25-03-2023</td>
-                <td>₹499</td>
-                <td><span class="badge bg-success">paid</span></td>
-                <td><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Jerrish</td>
-                <td>20-04-2023</td>
-                <td>22-05-2023</td>
-                <td>₹999</td>
-                <td><span class="badge bg-danger">unpaid</span></td>
-                <td><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Arun</td>
-                <td>20-01-2023</td>
-                <td>15-02-2023</td>
-                <td>₹399</td>
-                <td><span class="badge bg-success">Paid</span></td>
-                <td><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                  </label></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Lokesh</td>
-                <td>15-01-2023</td>
-                <td>15-02-2023</td>
-                <td>₹699</td>
-                <td><span class="badge bg-success">Paid</span></td>
-                <td><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                  </label></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</body>
-</html> -->
 <html>
     <head>
-        <!-- Datatable css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
-
+        
     </head>
     <body>
   <app-adminpage></app-adminpage>
-  <!-- <table class="table table-bordered"> -->
-    <div class="container p-3 my-5 bg-light border border-primary" >
-    <table id="example" class="table table-striped nowrap" style="width:100%">
+    <div class="container" style="max-width: 100%;">
+    <table class="table table-bordered" style="width: 100%;">
     <thead>
       
         <tr>
-            <th>INVOICE USER ID</th>
+            <th>INVOICE ID</th>
+            <th>User Id</th>
             <th>PLAN ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
             <th>Plan Name</th>
             <th>Activation Date</th>
             <th>Expiry Date</th>
-            <th>Due Date</th>
             <th>Payment</th>
+            <th>Action</th>
         </tr>
     
     </thead>
     <tbody>
         <!-- <div *ngFor="let item of invoiceData"> -->
             <tr *ngFor="let key of invoiceData">
-              <td>{{key.user_id}}</td>
-                <td>{{key.plan_id}}</td>
-                <td>{{key.plan_name}}</td>
-                <td>{{key.activation_date}}</td>
-                <td>{{key.expiry_date}}</td>
-                <td>{{key.price}}</td>
-                <td><button style="background-color: aquamarine;">Send Email</button></td>
+              <td>{{ cleanField(key.user_plan_id)}}</td>
+              <td>{{ cleanField(key.user_id.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.plan_id.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.username.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.email.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.phone.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.plan_name.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.activation_date.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.expiry_date.replace('"', ''))}}</td>
+              <td>{{ cleanField(key.price.replace('"', ''))}}</td>
+                <td><button style="background-color: aquamarine;" (click)="sendEmail(key.email, key.username, key.price, key.activation_date, key.expiry_date, key.plan_name,key.phone)">Send Email</button></td>
             </tr>
         <!-- </div> -->
       <!-- <tr *ngFor="let item of invoiceData">
@@ -131,19 +44,10 @@
       </tr> -->
     </tbody>
   </table>
-</div>
  
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#example').DataTable({
-      responsive: true
-    });
-  });
-</script>
+</div>
+
+ 
+
 </body>
 </html>

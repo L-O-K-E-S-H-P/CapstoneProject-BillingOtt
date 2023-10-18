@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MyUser } from '../MyUser';
 
 import { ThisReceiver } from '@angular/compiler';
+import { Status } from '../Status';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class SignupComponent {
 
   selectedProfileImage: File | null = null;
   signupForm:FormGroup;
+  inputText: any;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.signupForm = this.formBuilder.group({
@@ -73,6 +75,31 @@ onSubmit() {
     );
     
   } 
+  check:boolean=false
+  phoneNumberStatus: Status|undefined;
+  checkPhonenumberInDB(){
+    console.log("entered into checknum");
+    
+    if (this.inputText.length === 10) {
+      console.log(this.inputText);
+      const url = `http://localhost:8200/user/checknumber?number=${this.inputText}`;
+      console.log(url);
+
+      this.http.get<Status>(url).subscribe(res=>{
+        console.log(res)
+        this.phoneNumberStatus = res;
+        console.log('Phone number status:', this.phoneNumberStatus);
+        if(res.status==="success")
+        {
+          this.check=true
+        }
+      
+      });
+
+
+    } 
+
+  }
   
 
 

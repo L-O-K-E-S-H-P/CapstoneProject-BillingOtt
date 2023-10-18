@@ -25,12 +25,18 @@ export class UserplanComponent {
     const planId = ottplan.planId; // Get planId from the selected plan
     const planName=ottplan.planName;
     const price = ottplan.price; // Get price from the selected plan
+    const username=this.primaryAccount.username;
+    const email=this.primaryAccount.email;
+    const phone=this.primaryAccount.phone;
    
     const userPlanData = {
       userId: userId,
       planId: planId,
       planName:planName,
-      price: price
+      price: price,
+      username:username,
+      email:email,
+      phone:phone
     };
     this.planService.addSelectedPlan(userPlanData).subscribe(
       response => {

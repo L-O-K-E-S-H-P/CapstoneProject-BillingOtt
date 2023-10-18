@@ -1,4 +1,6 @@
+<div class="container" style="padding-top: 80px;">
 <app-user></app-user>
+</div>
 
 <div class="container mt-4">
   <table class="table table-bordered table-striped">
@@ -7,10 +9,14 @@
         <th>UserPlanID</th>
         <th>UserID</th>
         <th>planId</th>
+        <th>username</th>
+        <th>email</th>
+        <th>phone</th>
         <th>planName</th>
         <th>Activation Date</th>
         <th>Due Date</th>
         <th>Price</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -19,13 +25,19 @@
         <td>{{plan.userPlanId}}</td>
         <td>{{ plan.userId }}</td>
         <td>{{ plan.planId }}</td>
+        <td>{{plan.username}}</td>
+        <td>{{plan.email}}</td>
+        <td>{{plan.phone}}</td>
         <td>{{ plan.planName }}</td>
         <td>{{ plan.activationDate | date:'longDate' }}</td>
         <td>{{ plan.expiryDate | date:'longDate' }}</td>
         <td>{{ plan.price }}</td>
-        <td>
-          
-          <button type="submit" class="btn btn-success click-button m-1" routerLink="/userpay">PAY NOW</button>
+        <td><span *ngIf="plan.paid; else unpaid">Paid</span>
+          <ng-template #unpaid>Unpaid</ng-template></td>
+          <td>
+            <button *ngIf="!plan.paid" type="submit" class="btn btn-success click-button m-1" (click)="payInvoice(plan.userPlanId)">PAY NOW</button>
+            <button *ngIf="plan.paid" type="submit" class="btn btn-success click-button m-1"(click)="printInvoice(plan.userPlanId)">Print</button>
+            <button *ngIf="plan.paid && plan.planName && plan.userPlanId && plan.price" type="submit" class="btn btn-primary click-button m-1"(click)="downloadFile(plan)">Download</button>
         </td>
       </tr>
     </tbody>
